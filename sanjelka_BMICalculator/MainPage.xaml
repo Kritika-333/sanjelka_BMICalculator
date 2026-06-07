@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="sanjelka_BMICalculator.MainPage">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label
+                Text="BMI Calculator"
+                FontSize="30"
+                FontAttributes="Bold" />
+
+            <Grid ColumnDefinitions="*,*">
+
+                <Frame
+                    x:Name="MaleFrame"
+                    Grid.Column="0"
+                    Margin="5"
+                    BorderColor="Gray">
+
+                    <VerticalStackLayout>
+
+                        <Image
+                            Source="male.png"
+                            HeightRequest="100">
+
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="MaleTapped"/>
+                            </Image.GestureRecognizers>
+
+                        </Image>
+
+                        <Label
+                            Text="Male"
+                            HorizontalOptions="Center"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Frame
+                    x:Name="FemaleFrame"
+                    Grid.Column="1"
+                    Margin="5"
+                    BorderColor="Gray">
+
+                    <VerticalStackLayout>
+
+                        <Image
+                            Source="female.png"
+                            HeightRequest="100">
+
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FemaleTapped"/>
+                            </Image.GestureRecognizers>
+
+                        </Image>
+
+                        <Label
+                            Text="Female"
+                            HorizontalOptions="Center"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+            </Grid>
+
+            <Frame>
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Height (inches)"
+                        HorizontalOptions="Center"/>
+
+                    <Slider
+                        x:Name="HeightSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="HeightChanged"/>
+
+                    <Label
+                        x:Name="HeightLabel"
+                        Text="50"
+                        HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Frame>
+
+                <VerticalStackLayout>
+
+                    <Label
+                        Text="Weight (lbs)"
+                        HorizontalOptions="Center"/>
+
+                    <Slider
+                        x:Name="WeightSlider"
+                        Minimum="0"
+                        Maximum="300"
+                        Value="90"
+                        ValueChanged="WeightChanged"/>
+
+                    <Label
+                        x:Name="WeightLabel"
+                        Text="90"
+                        HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Button
+                Text="Calculate BMI"
+                Clicked="CalculateBMI"/>
+
+            <Label
+                x:Name="ResultLabel"
+                FontSize="18"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
